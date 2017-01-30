@@ -1,0 +1,38 @@
+body{
+    background-image: url(img/backbround.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity 0.5;
+}
+
+
+.firstenime {
+   float: left;
+   
+  
+}
+
+
+.secondenime {
+   float: right;
+  
+}
+
+
+.thirdenime{
+    float:left;
+    position: fixed;
+    bottom: 0;
+  
+   
+}
+
+img{
+    display: block;
+    padding: 5px;
+  width: 170px;
+}
+
+div{
+    border: solid 2px black;
+}

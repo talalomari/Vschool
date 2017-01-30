@@ -1,0 +1,31 @@
+
+
+.green{
+    background-color: green;
+    height: 200px;
+    text-align: center;
+}
+
+.aboutMe{
+      background-color: green;
+     color: white;
+     text-align: center;
+}
+
+.yallowMashroom{
+     background-color: yellow;
+     height: 100px;
+    
+}
+
+.imgwidth{
+    width: 50px;
+    float: right;
+}
+
+.container-fluid {
+   padding: 0px !important;
+     background-color:darkblue;
+    color: white;
+}
+

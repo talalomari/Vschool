@@ -1,0 +1,30 @@
+
+.mainclass{
+    width: 1000px;
+    height: 1000px;
+    margin: auto;
+}
+
+.firstClass{
+    border:5px white solid;
+    background-color: pink;
+    height: 100px;
+   
+}
+
+.splitsecondclass{
+     border:5px white solid;
+    width: 25%;
+    height: 100px;
+     display: inline-block;
+     background-color:fuchsia;
+}
+
+
+.splitthirdclass{
+     border:5px white solid;
+     width: 50%;
+     height: 100px;
+     display: inline-block;
+     background-color:lightblue;
+}

@@ -1,0 +1,28 @@
+header{
+    
+   
+    text-align: center;
+  
+        
+}
+
+a{
+    color: white;
+   padding: 10px;   
+   
+  
+}
+
+
+
+Footer{
+    align-self: baseline;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+  
+        
+}

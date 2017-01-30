@@ -1,0 +1,13 @@
+{
+	"appetizers": [{
+		"name": "soup",
+		"price": [1000, 200, 5000],
+		"founded": 1
+	}],
+	"cold sandwiches": [{
+		"name": "tona",
+		"price": 500,
+		"size": ["large", "small"]
+	}]
+
+}

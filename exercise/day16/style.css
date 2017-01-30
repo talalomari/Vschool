@@ -1,0 +1,33 @@
+.yallow{
+    background-color: yellow;
+    height: 100px;
+    font-size:50px;
+    color: red;
+    padding: 20px;
+}
+
+.red{
+    background-color: red;
+    height: 300px;
+    text-align: center;
+}
+
+.aboutMe{
+     color: red;
+     text-align: center;
+}
+
+.yallowMashroom{
+     background-color: yellow;
+     height: 100px;
+    
+}
+
+.imgwidth{
+    width: 50px;
+    float: right;
+}
+
+.container-fluid {
+   padding: 0px !important;
+}
