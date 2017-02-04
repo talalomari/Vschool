@@ -1,10 +1,4 @@
-
-
-var myName=['t','a','l','a','l'];
-
-var splitMyname = function(myName){
-   
-  return myName.splice(0,2);
-    
-}
-  console.log(splitMyname(myName));
+hundreds: function(number) {
+    base_function(Math.floor(number / 100), 'CD', 'CM', 'D', 'C');
+    return this.tens(number % 100);
+},
