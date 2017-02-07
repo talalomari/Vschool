@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app="app" ng-controller="mycnt">
+   <div>
+    <input type="text" ng-model="img">
+    <input type="text" ng-model="desc">
+    <input type="text" ng-model="title">   
+   </div>
+   <button ng-click="submit()">submit</button>
+   
+   <div ng-repeat="imgitem in list track by $index" >
+	 <p><img ng-src="{{imgitem.img}}"/></p>
+	  <p>{{imgitem.desc}}</p>
+	   <p>{{imgitem.title}}</p>
+   
+    
+   </div>
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js" ></script>
+    <script src="app.js" ></script>
+   
+</body>
+</html>

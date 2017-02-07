@@ -6,7 +6,7 @@
 </head>
 <body ng-app="app" ng-controller="mycnt">
    <div>
-    <input type="text" ng-model="fname">
+    <input type="text" ng-model="fileName">
     <input type="text" ng-model="email">
     <input type="text" ng-model="phone">
     <input type="text" ng-model="lname">
@@ -14,16 +14,11 @@
     <input type="text" ng-model="favorit">
     <input type="text" ng-model="moreAboutYou">    
    </div>
-   <button>submit</button>d
+   <button ng-click="submit()">submit</button>
+   <button ng-click="clear()">clear</button>
    
-   <div>
-    <input disable type="text" ng-model="fname">
-    <input disable type="text" ng-model="email">
-    <input disable type="text" ng-model="phone">
-    <input disable type="text" ng-model="lname">
-    <input disable type="text" ng-model="pob">
-    <input disable type="text" ng-model="favorit">
-    <input disable type="text" ng-model="moreAboutYou">
+   <div ng-repeat="lst in list track by $index" >
+	 <p> {{lst}}</p>
        
    </div>
     <script src="https://code.angularjs.org/1.6.1/angular.min.js" ></script>

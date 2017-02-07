@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-app="app" >
+   <div ng-controller="mycnt">
+       
+   
+    <div >
+        <input type="text" ng-model="stdName" >
+    </div>
+    <button ng-click="submit()">submit</button>
+
+    <div ng-repeat="name in students track by $index">
+        <p> {{name}} <button  ng-click="remove($index)">x</button>  </p> 
+
+    </div>
+    </div>
+    
+    <div ng-controller="newctr">
+     <button ng-click="btnclr()">submit</button>
+    </div>
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
