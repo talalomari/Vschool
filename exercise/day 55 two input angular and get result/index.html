@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <div ng-app="app" ng-controller="mycnt">
+       <input ng-model="userText"> <button ng-click="submit()">add</button> <button ng-click="delete()" >X</button>
+      <ul ng-repeat="item in list track by $index" >
+               <li  >
+                   {{item}} 
+               </li>
+          
+      </ul>
+       
+   </div>
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js" ></script>
+    <script src="app.js" ></script>
+   
+</body>
+</html>

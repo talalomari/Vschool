@@ -16,12 +16,16 @@ ang.service("todoService", function ($http) {
 
 ang.controller("httpctrl", function ($scope, todoService) {
     $scope.userText;
-    todoService.getData($scope.userText).then(function (response) {
+    $scope.submit= function() {
+         todoService.getData($scope.userText).then(function (response) {
         $scope.list = response.data;
        
     }, function (response) {
         alert(response.status);
     })
+        
+    }
+   
 
 
 });

@@ -3,4 +3,3 @@ var calculation = function(num1,num2,sign) {
     return eval(num1 + sign + num2) ;
     
 }
-
