@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app="app" ng-controller="mycnt">
+        <input ng-model="userText">
+        <input ng-model="userPrice">
+        <button ng-click="submit()">add</button>
+        <table ng-repeat="item in list track by $index">
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{item.price}}
+            </td>
+
+
+        </table>
+        {{total}}
+
+    </div>
+    <script src="https://code.angularjs.org/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+
+
+
+
+</body>
+
+</html>

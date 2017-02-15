@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Our first SPA app</title>
+</head>
+<body ng-app="app">
+  <nav>
+    <a href="#/home">Home</a>
+    <a href="#/about">about</a>
+  </nav>
+  <ng-view></ng-view>
+  <script src="https://code.angularjs.org/1.6.2/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.6.2/angular-route.min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./views/home/home.route.js"></script>
+  <script src="./views/about/about.route.js"></script>
+</body>
+</html>
