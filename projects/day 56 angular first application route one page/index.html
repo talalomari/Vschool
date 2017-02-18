@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="https://use.fontawesome.com/951c5e6081.js"></script>
+        <link rel="stylesheet" href="styleForImges.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body ng-app="app">
+    <header class="header">
+			<nav class="navbar navbar-default">
+          <div class="container-fluid">
+			   <address>
+            <ul class="nav navbar-nav">
+				
+              <li class="active">  <a href="#/home">Home</a></li>
+              <li class="active"> <a href="#/about">about</a></li>
+              <li class="active"><a href="#/contactUs">Contact Us </a></li>   
+            </ul>
+			  </address>
+			  <div class="navbar navbar-right">
+                <div class="container-fluid">
+                 <div class="row" >
+                    <div class="col-md-12" >
+                 <a href="#"><span class="glyphicon glyphicon-user"></span>  <button type="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">login</button></a>
+                    </div>
+                </div>
+                </div>
+          </div>
+		 </div>
+            </nav>  
+		</header>
+
+  	
+	
+	
+  <ng-view></ng-view>
+  
+  <footer  class="footer">
+ 
+		 <nav class="navbar navbar-default">
+			 <div class="navbar navbar-defalt">
+                <div class="container-fluid">
+                 <div class="row" >
+					  <div class="col-md-4 text-center">
+					 
+	<address>
+	All Copy right reserved by Talal Omarieh:2017 <br>
+Written by <a href="Talal:talal-omarieh@gmail.com"></a><br> 
+Visit us at:<br>
+Example.com<br>
+Beirut<br>
+Lebanin
+</address>
+ </div>
+		 <div class="col-md-4 text-center">
+			 <address>
+Our Company<br>
+About Cars.com<br>
+Contact Cars.com<br>
+Site Map<br>
+Careers<br>
+OMARIYEH<br>
+Read more at https://www.cars.com/
+</address>
+	 </div>
+					  <div class="col-md-4 text-center">
+						  <div >
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-linkedin"></i></a>
+							<a href="#"><i class="fa fa-google-plus"></i></a>
+							<a href="#"><i class="fa fa-skype"></i></a>
+					 </div>
+						  
+	 </div>
+     </div>
+    </div>
+			 </div>
+			 </nav>
+			 
+
+          
+	
+</footer>
+ <script type="text/javascript" src="script.js"></script>
+  <script src="https://code.angularjs.org/1.6.2/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.6.2/angular-route.min.js"></script>
+  <script src="./app.js"></script>
+  <script src="./views/home/home.route.js"></script>
+  <script src="./views/about/about.route.js"></script>
+  <script src="./views/contactus/contactUs.js"></script>
+</body>
+</html>
