@@ -11,6 +11,8 @@ app.directive("name", function() {
         link: function(scope, elem, attrs) {
       console.log("Loaded the directive");
       elem.bind("click", function() {
+       scope.title = "Hello World";
+        scope.$apply();
         console.log(scope.title);
         console.log(scope.colorOfText);
         elem.css("color", scope.colorOfText);
