@@ -2,17 +2,17 @@ var uuid = require("uuid");
 
 var animal = [{
     id: uuid.v4(),
-    name: "loin",
+    name: "lion",
     age :10,
     istasty:false
 }, {
     id: uuid.v4(),
-    firstName: "tiger",
+    name: "tiger",
     age :10,
     istasty:false
 }, {
     id: uuid.v4(),
-    firstName: "eagle",
+    name: "eagle",
     age :10,
     istasty:false
 }, ]
