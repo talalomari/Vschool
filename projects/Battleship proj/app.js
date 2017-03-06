@@ -12,7 +12,7 @@ function getRand(min,max){
 for(var x = 0; x < 10; x++){
     arr[x] = [];    
     for(var y = 0; y < 10; y++){ 
-        arr[x][y] = " X ";
+        arr[x][y] = " - ";
         newStr+=arr[x][y];
       
     }

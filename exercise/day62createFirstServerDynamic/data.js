@@ -1,20 +1,27 @@
 var uuid = require("uuid");
 
-var animal = [{
+var bounty = [{
     id: uuid.v4(),
-    name: "lion",
-    age :10,
-    istasty:false
+    firstName: "jack",
+    lastName :10,
+    living:false,
+    bountyAmount :5,
+    type:"sith"
+    
 }, {
-    id: uuid.v4(),
-    name: "tiger",
-    age :10,
-    istasty:false
+   id: uuid.v4(),
+    firstName: "join",
+    lastName :10,
+    living:true ,
+    bountyAmount :10,
+    type:"sith"
 }, {
-    id: uuid.v4(),
-    name: "eagle",
-    age :10,
-    istasty:false
+   id: uuid.v4(),
+    firstName: "bob",
+    lastName :10,
+    living:false,
+    bountyAmount :10,
+    type:"Jedi"
 }, ]
 
-module.exports = animal;
+module.exports = bounty;
