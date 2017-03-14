@@ -1,91 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/951c5e6081.js"></script>
 </head>
+
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="loadData()">
     <div class="container">
-    
-     <h4>Leave a Comment:</h4>
-      <form role="form">
-        <div class="form-group">
-          <textarea class="form-control" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>
-      <br><br>
-      
-      <p><span class="badge">2</span> Comments:</p><br>
-      
-      <div class="row">
-        <div class="col-sm-2 text-center">
-          <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-        </div>
-        <div class="col-sm-10">
-          <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
-          <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <br>
-        </div>
-        <div class="col-sm-2 text-center">
-          <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-        </div>
-        <div class="col-sm-10">
-          <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
-          <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <br>
-          <p><span class="badge">1</span> Comment:</p><br>
-          <div class="row">
-            <div class="col-sm-2 text-center">
-              <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-            </div>
-            <div class="col-xs-10">
-              <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
-              <p>Me too! WOW!</p>
-              <br>
-            </div>
-          </div>
-        </div>
-      </div>
-<!--
         <div class="row">
-            <div class="col-md-5 col-md-offset-3 title"> 
+            <div class="col-md-5 col-md-offset-3 title">
             </div>
         </div>
         <div class="row">
             <div class="col-md-5 col-md-offset-3 addrow1">
-                <div ng-repeat="todoItem in todoItems.data track by $index">
-                   <input type="text" value="{{todoItem.title}}">
-                    <h1 ng-model="todoItem">{{todoItem.title}} </h1>
+                <div ng-repeat="todoItem in todoItems track by $index">
+                    <h4>{{todoItem.title}}</h4>
+
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3">{{todoItem.desc}}</textarea>
+                    </div>
+                    <button type="submit" ng-click="increasevote(todoItem._id)" class="btn btn-info"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+                    <button type="submit" ng-click="decreasevote(todoItem._id)" class="btn btn-danger"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>
+
+                    <br>
+                    <br>
+
+                    <p><span class="badge">{{todoItem.comments.length}}</span> Comments:</p>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-sm-2 text-center">
+
+                        </div>
+                        <div class="col-sm-10">
+                            <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+                            <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <br>
+                        </div>
+                        <div class="col-sm-2 text-center">
+
+                        </div>
+                        <div class="col-sm-10">
+                            <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
+                            <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <br>
+                            <p><span class="badge">1</span> Comment:</p>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-2 text-center">
+
+                                </div>
+                                <div class="col-xs-10">
+                                    <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
+                                    <p>Me too! WOW!</p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <input ng-model="edititem">
                     <button ng-click="edit(todoItem._id,edititem)" class="glyphicon glyphicon-pencil btn btn-success"></button>
                     <button ng-click="deleteItem(todoItem._id)" class="glyphicon glyphicon-trash btn btn-danger"></button>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-5 col-md-offset-3 add">
-                <input ng-model="title" placeholder="name">
-                 <input ng-model="cost"  placeholder="cost" type="number">
-                  <input ng-model="type"  placeholder="type" >
-                <button ng-click="add()" class="glyphicon glyphicon-plus btn btn-info"></button>
-            </div>
-        </div>
--->
     </div>
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="/js/app.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

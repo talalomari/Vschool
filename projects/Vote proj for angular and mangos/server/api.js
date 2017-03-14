@@ -56,6 +56,25 @@ apiRouter.post("/resturant", function (req, res) {
 
 });
 
+apiRouter.post("/resturant", function (req, res) {
+    var newMenu = new Vote(req.body);
+    newMenu.save(function (err, data) {
+        if (err) {
+            res.status(500).send({
+                message: "Error in db",
+                err: err
+            });
+
+        } else {
+            res.status(200).send({
+                message: "here is the data",
+                data: data
+            })
+        }
+
+    });
+});
+
 apiRouter.delete("/resturant/:id", function (req, res) {
     Vote.findById(req.params.id, function (err, result) {
         if (err) {

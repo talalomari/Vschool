@@ -19,14 +19,52 @@ app.service("todoReq", function ($http) {
         }
         return $http.put("http://localhost:8080/resturant/" + id + str);
     }
+    
+    
+     this.increasevote = function (id,data) {
+       var query = "";
+        for (key in data) {
+            query += key;
+            query += "=";
+            query += data[key];
+            query += "&"
+        }
+        return $http.put("http://localhost:8080/resturant/" + id + "?" + query);
+    }
+     
+      this.decreasevote = function (id,data) {
+       var query = "";
+        for (key in data) {
+            query += key;
+            query += "=";
+            query += data[key];
+            query += "&"
+        }
+        return $http.put("http://localhost:8080/resturant/" + id + "?" + query);
+    }
+    
+    
 });
 
 app.controller("myCtrl", function ($scope, todoReq) {
+       $scope.getIndex = function (_id) {
+        for (var i = 0; i < $scope.todoItems.length; i++) {
+            if ($scope.todoItems[i]._id == _id) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    
+    
+    
     $scope.loadData = function () {
         todoReq.getData().then(function (response) {
-            $scope.todoItems = response.data;
+            $scope.todoItems = response.data.data;
+        
         }, function (response) {
-            console.log(response.status);
+            console.log(response.data.data.title);
         })
     };
     $scope.add = function () {
@@ -61,4 +99,32 @@ app.controller("myCtrl", function ($scope, todoReq) {
             console.log(error.status);
         });
     }
+    
+    
+    $scope.increasevote= function(_id){
+           $index = $scope.getIndex(_id);
+        var upvote = $scope.todoItems[$index].upVote;
+        upvote++;
+        var data = {
+            upVote: upvote
+        }
+        todoReq.increasevote(_id, data).then($scope.loadData)
+        
+      
+    }
+    
+      $scope.decreasevote= function(_id){
+           $index = $scope.getIndex(_id);
+        var downVote = $scope.todoItems[$index].downVote;
+        downVote++;
+        var data = {
+            downVote: downVote
+        }
+        todoReq.decreasevote(_id, data).then($scope.loadData)
+        
+      
+    }
+    
+    
+    
 });

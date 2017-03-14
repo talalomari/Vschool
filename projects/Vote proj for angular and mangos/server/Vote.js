@@ -17,8 +17,7 @@ var VoteSchema = new Schema({
         type: Number,
         required: true
     },
-    comments:[]
-    
+  comments: [{ body: String, date: { type: Date, default: Date.now } }],
     
 });
 
