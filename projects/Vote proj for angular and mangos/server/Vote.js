@@ -3,22 +3,29 @@ var Schema = mongoose.Schema;
 var VoteSchema = new Schema({
     title: {
         type: String,
-        required: true
+        default: "your  post"
     },
-   desc: {
+    desc: {
         type: String,
-        required: true
+        default: "your  description"
     },
-     upVote: {
+    upVote: {
         type: Number,
-        required: true
+        default: 0
     },
-      downVote: {
+    downVote: {
         type: Number,
-        required: true
+        default: 0
+
     },
-  comments: [{ body: String, date: { type: Date, default: Date.now } }],
-    
+    comments: [{
+        body: String,
+        date: {
+            type: Date,
+            default: Date.now
+        }
+    }],
+
 });
 
 module.exports = mongoose.model('Vote', VoteSchema);

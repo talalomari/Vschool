@@ -32,6 +32,20 @@ app.service("todoReq", function ($http) {
         return $http.put("http://localhost:8080/resturant/" + id + "?" + query);
     }
      
+     
+      this.addCommit = function (id,comment) {
+      console.log(data);
+      alert(id);
+       var data={
+            body: "this is the first coomti"
+       }
+        
+        return $http.post("http://localhost:8080/resturant/" + id ,data);
+    }
+     
+     
+     
+     
       this.decreasevote = function (id,data) {
        var query = "";
         for (key in data) {
@@ -57,7 +71,7 @@ app.controller("myCtrl", function ($scope, todoReq) {
     }
     
     
-    
+  
     
     $scope.loadData = function () {
         todoReq.getData().then(function (response) {
@@ -69,8 +83,7 @@ app.controller("myCtrl", function ($scope, todoReq) {
     };
     $scope.add = function () {
         var data = {
-             name: $scope.title,
-             desc: $scope.description,
+             title: $scope.title,
              upvote: $scope.upvote,
              downvote: $scope.downvote,
              comments:$scope.comments
@@ -124,6 +137,20 @@ app.controller("myCtrl", function ($scope, todoReq) {
         
       
     }
+      
+      
+      
+      $scope.addCommit= function(_id){
+         alert(_id)
+        var data = {
+            comments:[{body:"hhhhh"}]
+        }
+        todoReq.addCommit(_id, data).then($scope.loadData)
+        
+      
+    }
+      
+      
     
     
     

@@ -34,27 +34,7 @@ apiRouter.get("/resturant", function (req, res) {
 });
 
 
-apiRouter.post("/resturant", function (req, res) {
-    var newMenu = new Vote(req.body);
-    newMenu.save(function (err, data) {
-        if (err) {
-            res.status(500).send({
-                message: "Error in db",
-                err: err
-            });
 
-        } else {
-            res.status(200).send({
-                message: "here is the data",
-                data: data
-            })
-        }
-
-    })
-
-
-
-});
 
 apiRouter.post("/resturant", function (req, res) {
     var newMenu = new Vote(req.body);
@@ -106,6 +86,39 @@ apiRouter.put("/resturant/:id", function (req, res) {
             });
         }
     })
+});
+apiRouter.post("/resturant/:id", function (req, res) {
+
+    Vote.findById(req.params.id, function (err, result) {
+        if (err) {
+            res.status(500).send(err);
+        } else if (result == undefined) {
+            res.status(404).send(err);
+        } else {
+            var postComment = {
+                body: req.body.body
+            }
+            result.comments.push(postComment);
+            result.save(function (err, data) {
+                if (err) {
+                    res.status(500).send({
+                        message: "Error in db",
+                        err: err
+                    });
+
+                } else {
+                    res.status(200).send({
+                        message: "here is the data",
+                        data: data
+                    })
+                }
+
+            });
+        }
+    })
+
+
+
 })
 
 
