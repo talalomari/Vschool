@@ -22,6 +22,7 @@ app.service("todoReq", function ($http) {
     
     
      this.increasevote = function (id,data) {
+       
        var query = "";
         for (key in data) {
             query += key;
@@ -33,14 +34,14 @@ app.service("todoReq", function ($http) {
     }
      
      
-      this.addCommit = function (id,comment) {
-      console.log(data);
-      alert(id);
-       var data={
-            body: "this is the first coomti"
-       }
+      this.addCommit = function (id,comments) {
+    console.log(comments.comments[0]);
+//     alert(comments[0][body]);
+//       var data={
+//            body:yyyy
+//       }
         
-        return $http.post("http://localhost:8080/resturant/" + id ,data);
+        return $http.post("http://localhost:8080/resturant/" + id ,comments.comments[0]);
     }
      
      
@@ -61,9 +62,18 @@ app.service("todoReq", function ($http) {
 });
 
 app.controller("myCtrl", function ($scope, todoReq) {
+    
+    
+    
+    
+    
+    
+    
+    
+    
        $scope.getIndex = function (_id) {
-        for (var i = 0; i < $scope.todoItems.length; i++) {
-            if ($scope.todoItems[i]._id == _id) {
+        for (var i = 0; i < $scope.timeLine.length; i++) {
+            if ($scope.timeLine[i]._id == _id) {
                 return i;
             }
         }
@@ -74,18 +84,33 @@ app.controller("myCtrl", function ($scope, todoReq) {
   
     
     $scope.loadData = function () {
-        todoReq.getData().then(function (response) {
-            $scope.todoItems = response.data.data;
-        
+       todoReq.getData().then(function (response) {
+            $scope.timeLine = [];
+            //            $scope.timeLine = response.data.data;
+            var dataGet = response.data.data;
+           console.log(dataGet[0].comments.length);
+            for (var i = 0; i < dataGet.length; i++) {
+                $scope.timeLine.push({
+                    _id: dataGet[i]._id,
+                    title: dataGet[i].title,
+                    description: dataGet[i].description,
+                    upVote: dataGet[i].upVote || 0,
+                    downVote: dataGet[i].downVote || 0,
+                    comments: dataGet[i].comments,
+                    isShowingComment: false,
+                    isShowingAddComment: false,
+                    isShowingEdit: false
+                })
+            }
         }, function (response) {
-            console.log(response.data.data.title);
+            console.log(response.status);
         })
     };
     $scope.add = function () {
         var data = {
              title: $scope.title,
-             upvote: $scope.upvote,
-             downvote: $scope.downvote,
+             upVote: $scope.upVote,
+             downVote: $scope.downVote,
              comments:$scope.comments
         }
         todoReq.postData(data).then($scope.loadData, function (error) {
@@ -93,6 +118,12 @@ app.controller("myCtrl", function ($scope, todoReq) {
         });
         $scope.task = "";
     }
+    
+     //Show/Hide Comment
+    $scope.showHideComment = function (_id) {
+        index = $scope.getIndex(_id);
+            $scope.timeLine[index].isShowingComment = !$scope.timeLine[index].isShowingComment;
+        }
 
     $scope.edit = function (id, editinput) {
         var data = {
@@ -115,12 +146,15 @@ app.controller("myCtrl", function ($scope, todoReq) {
     
     
     $scope.increasevote= function(_id){
+          
            $index = $scope.getIndex(_id);
-        var upvote = $scope.todoItems[$index].upVote;
-        upvote++;
+        var upVote = $scope.timeLine[$index].upVote;
+        upVote++;
         var data = {
-            upVote: upvote
+            upVote: upVote
         }
+        
+        
         todoReq.increasevote(_id, data).then($scope.loadData)
         
       
@@ -128,7 +162,7 @@ app.controller("myCtrl", function ($scope, todoReq) {
     
       $scope.decreasevote= function(_id){
            $index = $scope.getIndex(_id);
-        var downVote = $scope.todoItems[$index].downVote;
+        var downVote = $scope.timeLine[$index].downVote;
         downVote++;
         var data = {
             downVote: downVote
@@ -140,10 +174,9 @@ app.controller("myCtrl", function ($scope, todoReq) {
       
       
       
-      $scope.addCommit= function(_id){
-         alert(_id)
+      $scope.addCommit= function(_id,sometext){
         var data = {
-            comments:[{body:"hhhhh"}]
+            comments:[{body:sometext}]
         }
         todoReq.addCommit(_id, data).then($scope.loadData)
         
