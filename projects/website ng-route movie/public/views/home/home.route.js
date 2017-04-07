@@ -1,4 +1,4 @@
-var app = angular.module("app.home", ["ngRoute","apiModule"]);
+var app = angular.module("app.home", ["ngRoute", "apiModule"]);
 
 app.config(function ($routeProvider) {
     $routeProvider.when("/home", {
@@ -19,7 +19,7 @@ app.service("GetMoivesList", function ($http) {
     }
 });
 
-app.controller("homeCtrl", function ($scope, GetMoivesList,apiService) {
+app.controller("homeCtrl", function ($scope, GetMoivesList, apiService) {
     $scope.userText;
     $scope.getYear;
     $scope.listOfMovies = [];
@@ -50,6 +50,7 @@ app.controller("homeCtrl", function ($scope, GetMoivesList,apiService) {
         $("#SearchMovieByName").hide();
         GetMoivesList.getDataByYear(year).then(function (response) {
             $scope.listOfMovies = response.data.Search;
+            console.log($scope.listOfMovies)
         }, function (response) {
             $scope.img = '';
         })
@@ -71,41 +72,31 @@ app.controller("homeCtrl", function ($scope, GetMoivesList,apiService) {
     init();
 
 
-    
-    $scope.add = function() {
-       
+
+    $scope.addFromFav = function () {
         var data = {
-               img: $scope.img, 
-               Actors:$scope.Actors, 
-               Plot: $scope.Plot,
-               Title: $scope.Title 
+            img: $scope.img,
+            Actors: $scope.Actors,
+            Plot: $scope.Plot,
+            Title: $scope.Title
         }
+
         apiService.postData(data).then($scope.getMovie);
-        
-        
+
+
+    }
+
+    $scope.add = function (valueFav) {
+        console.log(valueFav);
+        var data = {
+            img: valueFav.Poster,
+            Actors: valueFav.Actors,
+            Plot: valueFav.Plot,
+            Title: valueFav.Title
+        }
+
+        apiService.postData(data).then($scope.getMovie);
+
+
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

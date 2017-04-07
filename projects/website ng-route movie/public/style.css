@@ -37,11 +37,51 @@ button {
 }
 
 .btnFav{
-       width: 200px;
-       height: 50px;
+       
        float: right;
-      
+      right: -20px;
+    margin-right: 60px !important;
+    margin-top: -1px !important;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  width: 150px;
+    height: 60px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
+
+.btnFav span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btnFav span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btnFav:hover span {
+  padding-right: 25px;
+}
+
+.btnFav:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+    
+      
+
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -363,4 +403,18 @@ img{
 	margin: 5px;
 }
 
+
+
+.favButton{
+    color: red;
+    font-size: 2.4rem;
+    display: inline;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    position: relative;
+    float: right;
+   
+  
+   
+}
 
