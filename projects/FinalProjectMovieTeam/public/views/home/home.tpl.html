@@ -1,0 +1,102 @@
+<body ng-init="init()">
+    <div>
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-sm-2 sidenav">
+                    <h4>Select your Movies</h4>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <button type="button" ng-click="getMovieByYear(2016)" class="btn btn-success">New Movies</button>
+                            <li>
+                                <button type="button" ng-click="getMovieByYear(1970)" class="btn btn-warning">Old Movies</button>
+                                <li>
+                                    <button type="button" ng-click="getMovieBySeries()" class="btn btn-primbtn btn-info">Series</button>
+
+
+
+                    </ul>
+                    <br>
+                    <div class="input-group">
+                        <input type="text" ng-model="userText" class="form-control" placeholder="movie name..">
+                        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="getMovie()">
+            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-10">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div ng-repeat="val in listOfMovies" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 col-xxs-12">
+                                <div  class="card">
+
+                                    <img ng-src="{{val.Poster !='N/A' ? val.Poster : '/images/notfound.png'}}" class="imgSize">
+                                 
+
+                                    <div class="container">
+                                        <h5><b>{{val.Title}}</b></h5>
+                                    </div>
+                                        <a ng-click="add(val)"  href="#/about">
+                                      <i class="fa fa-heart" aria-hidden="true"></i>
+                               </a>
+                                </div>
+                                <hr>
+
+                            </div>
+                            <!--
+	    <div ng-repeat="val in listOfMovies"  class="col-sm-3">
+		 <img ng-src="{{val.Poster !='N/A' ? val.Poster : '/images/notfound.png'}}" class="imgSize" />
+		</div>
+			</div>
+-->
+                        </div>
+
+                    </div>
+
+
+                    <div class="card" id="SearchMovieByName">
+                        <img ng-src="{{img !='N/A' ? img : '/images/notfound.png'}}" class="pull-left" />
+                        <div class="container">
+                            <a ng-click="addFromFav()"  href="#/about">
+                                <button class="btnFav"  ><span>Favorite</span></button></a>
+                            <h3>{{'  ' +Title}}</h3>
+
+
+
+                            <p>{{' Plot:' +' ' +Plot}}</p>
+                            <p>{{' Actors:' +' ' +Actors}}</p>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <!--
+		<div id="SearchMovieByName">  
+		 <img ng-src="{{img !='N/A' ? img : '/images/notfound.png'}}" class="pull-left" />
+		
+		 <h3>{{Title}}</h3> <br>
+		  <p>{{Plot}}</p>
+		  <p>{{Actors}}</p>
+		</div>
+-->
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>

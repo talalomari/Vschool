@@ -1,0 +1,82 @@
+<div class="container" ng-init="loadData()">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-3 title">
+        </div>
+    </div>
+    <div class="container-fluid">
+
+
+
+
+
+        <div class="row">
+            <div ng-repeat="todoItem in timeLine track by $index" class="col-lg-4 col-md-6 col-sm-12 col-xs-12 col-xxs-12">
+                <div class="card">
+                      <button ng-click="deleteItem(todoItem._id)" class="glyphicon glyphicon-trash btn btn-danger"></button>
+                    <img ng-src="{{todoItem.img !='N/A' ? todoItem.img : '/images/notfound.png'}}" class="imgSize">
+
+
+                    <div class="container">
+                        <h5><b>{{todoItem.Title}}</b></h5>
+                        <button type="submit" ng-click="increasevote(todoItem._id)" class="btn btn-info"><span class="badge">{{todoItem.upVote}}</span> <i class="fa fa-thumbs-o-up" aria-hidden="true">  </i></button>
+                        <button type="submit" ng-click="decreasevote(todoItem._id)" class="btn btn-danger"><span class="badge">{{todoItem.downVote}}</span> <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>
+
+                        <button ng-click="showHideComment(todoItem._id)" class="btn btn-primary"> <span class="badge">{{todoItem.comments.length}}</span> Comments</button>
+                    </div>
+
+                    <div class="container">
+                        <div id="myNav">
+
+
+                            <div ng-repeat="comment in todoItem.comments track by $index">
+                                <div ng-if="todoItem.isShowingComment">
+                                    <div class="row">
+                                        <div class="col-sm-1 text-center">
+                                            <img src="../../images/aboutImgs/default.png" class="img-circle" height="65" width="65" alt="Avatar">
+                                        </div>
+                                        <div class="col-sm-11">
+                                            <h4>User:  {{$index}} <small>{{comment.date}}</small></h4>
+                                            <p>{{comment.body}}</p>
+                                            <br>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <input type="text" ng-model="sometext" placeholder="add commit">
+                            <button ng-click="addCommit(todoItem._id, sometext)" class="btn btn-warning"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+            </div>
+            <!--
+	    <div ng-repeat="val in listOfMovies"  class="col-sm-3">
+		 <img ng-src="{{val.Poster !='N/A' ? val.Poster : '/images/notfound.png'}}" class="imgSize" />
+		</div>
+			</div>
+-->
+        </div>
+
+
+
+
+        <!--
+                <input ng-model="edititem">
+                <button ng-click="edit(todoItem._id,edititem)" class="glyphicon glyphicon-pencil btn btn-success"></button>
+-->
+        
+
+
+
+        <hr>
+    </div>
+
+
+
+
+</div>

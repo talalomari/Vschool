@@ -1,0 +1,21 @@
+a {
+    color: white;
+    font-size: 3.4rem;
+    padding: 10px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+	  position: relative;
+  margin-top: -180px; /* negative value of footer height */
+  height: 180px;
+  clear: both;
+
+}
+
+
+
+a:hover {
+    color: #70726F;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+
+}
